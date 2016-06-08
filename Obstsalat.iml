@@ -22,5 +22,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="WebSphere 8.5.5.93" level="application_server_libraries" />
     <orderEntry type="library" name="Mojarra-2.2.1" level="project" />
+    <orderEntry type="library" name="javax.faces-2.2.1" level="application" />
   </component>
 </module>
