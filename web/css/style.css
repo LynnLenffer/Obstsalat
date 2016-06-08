@@ -1,0 +1,139 @@
+/*** General ***/
+@import url(mojoflex.css);
+
+body {
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+p, 
+address {
+	margin-bottom: 14px;
+}
+
+strong {}
+
+
+/*** Colors ***/
+
+/* Font Color */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p, 
+address, 
+cite,
+a,
+a:hover {
+	color: #000000;
+}
+
+
+
+button, 
+input[type="submit"],
+.off-canvas-left .current-menu-item a, 
+.off-canvas-left .current-menu-ancestor a,
+.off-canvas-right .current-menu-item a,
+.off-canvas-right .current-menu-ancestor a {
+	color: #ffffff;
+}
+
+
+/* Background Color */
+main button, 
+main input[type="submit"],
+.off-canvas-left .current-menu-item, 
+.off-canvas-left .current-menu-ancestor,
+.off-canvas-right .current-menu-item,
+.off-canvas-right .current-menu-ancestor {
+	background-color: #eeeeee;
+}
+
+main button:hover, 
+main input[type="submit"]:hover {
+	background-color: #000000;
+}
+
+
+/*** Layout ***/
+
+/* Header */
+header {
+
+}
+
+
+/* Main */
+main {
+
+}
+
+
+/* Footer */
+footer {
+
+}
+
+
+/*** Mobil ***/
+@media (max-width: 1200px) {
+
+	/*** General ***/
+
+
+	/*** Layout ***/
+
+	/* Header */
+
+
+	/* Main */
+
+
+	/* Footer */
+
+}
+
+@media (max-width: 992px) {
+
+	/*** General ***/
+
+
+	/*** Layout ***/
+
+	/* Header */
+
+
+	/* Main */
+
+
+	/* Footer */
+
+}
+
+@media (max-width: 768px) {
+
+	/*** General ***/
+
+
+	/*** Layout ***/
+
+	/* Header */
+
+
+	/* Main */
+
+
+	/* Footer */
+
+}
