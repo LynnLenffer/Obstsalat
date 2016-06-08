@@ -1,12 +1,22 @@
 /*** General ***/
 @import url(mojoflex.css);
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
 	font-size: 14px;
 	line-height: 1.2;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-weight: 400;
 }
 
-h1 {}
+h1 {
+	font-size: 70px;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
 h2 {}
 h3 {}
 h4 {}
@@ -24,7 +34,6 @@ strong {}
 /*** Colors ***/
 
 /* Font Color */
-h1,
 h2,
 h3,
 h4,
@@ -35,13 +44,17 @@ address,
 cite,
 a,
 a:hover {
-	color: #000000;
+	color: #878786;
 }
 
-
+h1 {
+	color: #fccf8e;
+}
 
 button, 
 input[type="submit"],
+input[type="button"],
+.buttonBig,
 .off-canvas-left .current-menu-item a, 
 .off-canvas-left .current-menu-ancestor a,
 .off-canvas-right .current-menu-item a,
@@ -51,37 +64,69 @@ input[type="submit"],
 
 
 /* Background Color */
+.green,
 main button, 
 main input[type="submit"],
+main input[type="button"],
 .off-canvas-left .current-menu-item, 
 .off-canvas-left .current-menu-ancestor,
 .off-canvas-right .current-menu-item,
 .off-canvas-right .current-menu-ancestor {
-	background-color: #eeeeee;
+	background-color: #95c11e;
 }
 
-main button:hover, 
-main input[type="submit"]:hover {
-	background-color: #000000;
+.orange {
+	background-color: #fccf8e;
 }
 
 
 /*** Layout ***/
+.box {
+	padding: 15px;
+
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.buttonBig {
+	font-size: 30px;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+input[type="submit"] {
+	margin: 0;
+}
 
 /* Header */
-header {
+.header {
 
+}
+
+.logo {
+	width: 100%;
+	max-width: 500px;
+	margin-top: 50px;
+}
+
+.boxTop {
+	border-radius: 0 0 10px 10px;
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
 }
 
 
 /* Main */
-main {
+.main {
 
 }
 
 
 /* Footer */
-footer {
+.footer {
 
 }
 
@@ -129,6 +174,12 @@ footer {
 	/*** Layout ***/
 
 	/* Header */
+	.boxTop {
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		margin-top: 20px;
+	}
 
 
 	/* Main */
