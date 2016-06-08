@@ -16,9 +16,9 @@
 				<h:panelGroup layout="block" class="box boxTop orange">
 
 					<h:form id="login">
-						<h:inputText a:placeholder="E-Mail" id="email" value="#{user.email}"/>
-						<h:inputSecret a:placeholder="Passwort" id="password" value="#{user.password}"/>
-						<h:commandButton id="loginButton" class="green" value="Login" action="#{user.checkLogin}"/>
+						<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
+						<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
+						<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}"/>
 					</h:form>
 
 				</h:panelGroup>
