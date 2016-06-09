@@ -32,5 +32,15 @@ public class PostManager {
         return true;
     }
 
+    public boolean setRating(){
+
+        return true;
+    }
+
+    public boolean getRating(){
+
+        return true;
+    }
+
 
 }
