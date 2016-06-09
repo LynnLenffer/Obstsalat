@@ -11,39 +11,38 @@ public class Post {
     private Timestamp post_creation_date;
 
 
-
     // Getter
+    public int getPost_id() {
+        return post_id;
+    }
+
     public int getUser_id() {
         return user_id;
     }
 
-    public int getPostId() {
-        return post_id;
-    }
-
-    public String getPostMessage() {
+    public String getPost_message() {
         return post_message;
     }
 
-    public Timestamp getPostDate() {return post_creation_date;}
+    public Timestamp getPost_creation_date() {
+        return post_creation_date;
+    }
 
 
     // Setter
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
     public void setPost_id(int post_id) {
         this.post_id = post_id;
     }
 
-    public void setPostMessage(String message) {
-        this.post_message = message;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public void setPostDate(Timestamp post_date) {
-        this.post_creation_date = post_date;
+    public void setPost_message(String post_message) {
+        this.post_message = post_message;
     }
 
-
+    public void setPost_creation_date(Timestamp post_creation_date) {
+        this.post_creation_date = post_creation_date;
+    }
 }

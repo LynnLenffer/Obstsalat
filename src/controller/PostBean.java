@@ -37,6 +37,15 @@ public class PostBean implements Serializable {
 
 
     // IM
+    public boolean writePost() {
+        System.out.println("write post");
+        return true;
+    }
+
+    public boolean searchPost() {
+        System.out.println("search post");
+        return true;
+    }
 
 
 }

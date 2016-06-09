@@ -9,7 +9,7 @@
 		<h:panelGroup layout="block" class="row">
 
 			<h:panelGroup layout="block" class="col-sm-4">
-				<h:graphicImage class="logo" value="/img/logo_obstsalat.png" />
+				<h:link outcome="index"><h:graphicImage class="logo" value="/img/logo_obstsalat.png" /></h:link>
 			</h:panelGroup>
 
 			<h:panelGroup layout="block" class="col-sm-4 col-sm-offset-4">
@@ -18,7 +18,7 @@
 					<h:form id="login">
 						<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
 						<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
-						<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}"/>
+						<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.login}"/>
 					</h:form>
 
 				</h:panelGroup>

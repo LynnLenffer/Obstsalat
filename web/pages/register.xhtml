@@ -5,13 +5,31 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-<ui:composition template="layout.xhtml">
+<ui:composition template="template/layout.xhtml">
     <ui:define name="content">
 
         <h:panelGroup layout="block" class="row">
 
             <h:panelGroup layout="block" class="col-sm-12 text-center">
                 <h1>Registrieren</h1>
+            </h:panelGroup>
+
+        </h:panelGroup>
+
+        <h:panelGroup layout="block" class="row">
+
+            <h:panelGroup layout="block" class="col-sm-4 col-sm-offset-4">
+                <h:panelGroup layout="block" class="box green">
+
+                    <h:form id="register" enctype="multipart/form-data">
+                        <h:inputText a:placeholder="Benutzername" id="username" value="#{userBean.user.user_name}"/>
+                        <h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
+                        <h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
+                        <h:inputFile class="orange whiteFont" id="userimage" value="#{userBean.user.user_avatar}"/>
+                        <h:commandButton id="registerButton" class="orange maxWidth" value="Registrieren" action="#{userBean.register}"/>
+                    </h:form>
+
+                </h:panelGroup>
             </h:panelGroup>
 
         </h:panelGroup>

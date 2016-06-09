@@ -37,9 +37,25 @@ public class UserBean implements Serializable {
 
 
     // IM
-    public boolean checkLogin() {
-        System.out.println("Test");
+    public boolean login() {
+        System.out.println("login");
         return true;
     }
+
+    public boolean logout() {
+        System.out.println("logout");
+        return true;
+    }
+
+    public boolean register() {
+        System.out.println("register");
+        return true;
+    }
+
+    public boolean deleteUser() {
+        System.out.println("delete User");
+        return true;
+    }
+
 
 }
