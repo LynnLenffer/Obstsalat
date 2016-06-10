@@ -17,8 +17,19 @@ h1 {
 	margin-bottom: 40px;
 }
 
-h2 {}
-h3 {}
+h2 {
+	font-size: 32px;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin-bottom: 14px;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: 400;
+	margin-bottom: 14px;
+}
+
 h4 {}
 h5 {}
 h6 {}
@@ -28,14 +39,13 @@ address {
 	margin-bottom: 14px;
 }
 
+
 strong {}
 
 
 /*** Colors ***/
 
 /* Font Color */
-h2,
-h3,
 h4,
 h5,
 h6,
@@ -51,10 +61,20 @@ h1 {
 	color: #fccf8e;
 }
 
-button, 
+.footer a:hover,
+h2 {
+	color: #95c11e;
+}
+
+h3,
+button,
+.buttonSmall,
+.whiteFont,
 input[type="submit"],
 input[type="button"],
 .buttonBig,
+.footer a,
+.box p,
 .off-canvas-left .current-menu-item a, 
 .off-canvas-left .current-menu-ancestor a,
 .off-canvas-right .current-menu-item a,
@@ -65,6 +85,7 @@ input[type="button"],
 
 /* Background Color */
 .green,
+.buttonSmall,
 main button, 
 main input[type="submit"],
 main input[type="button"],
@@ -103,7 +124,7 @@ input[type="submit"] {
 
 /* Header */
 .header {
-
+	margin-bottom: 40px;
 }
 
 .logo {
@@ -116,20 +137,34 @@ input[type="submit"] {
 	border-radius: 0 0 10px 10px;
 	-moz-border-radius: 0 0 10px 10px;
 	-webkit-border-radius: 0 0 10px 10px;
+
+	height: 130px;
+}
+
+.welcomeMessage {
+	margin-top: 10px;
+	margin-bottom: 45px;
 }
 
 
 /* Main */
 .main {
-
+	margin-bottom: 80px;
 }
 
 
 /* Footer */
 .footer {
-
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
 }
 
+.footer a {
+	margin-right: 20px;
+}
 
 /*** Mobil ***/
 @media (max-width: 1200px) {
@@ -169,6 +204,14 @@ input[type="submit"] {
 @media (max-width: 768px) {
 
 	/*** General ***/
+	h1 {
+		font-size: 32px;
+	}
+
+	h2,
+	.buttonBig {
+		font-size: 24px;
+	}
 
 
 	/*** Layout ***/
@@ -179,6 +222,8 @@ input[type="submit"] {
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		margin-top: 20px;
+
+		height: auto;
 	}
 
 
