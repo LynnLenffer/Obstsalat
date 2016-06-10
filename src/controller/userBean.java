@@ -41,21 +41,59 @@ public class UserBean implements Serializable {
     // IM
     public boolean checkLogin() {
         System.out.println("Test");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().redirect("dashboard.jsf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return this.userManager.checkCredentials(this.user);
+
     }
 
     public boolean logout() {
         System.out.println("logout");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().redirect("index.jsf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return true;
+
     }
 
     public boolean register() {
         System.out.println("register");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().redirect("index.jsf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return true;
     }
 
     public boolean deleteUser() {
         System.out.println("delete User");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().redirect("index.jsf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return true;
     }
 

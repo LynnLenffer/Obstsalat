@@ -6,6 +6,8 @@ import model.Post;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 
 @ManagedBean(name="postBean")
@@ -39,11 +41,29 @@ public class PostBean implements Serializable {
     // IM
     public boolean writePost() {
         System.out.println("write post");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().redirect("dashboard.jsf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return true;
     }
 
     public boolean searchPost() {
         System.out.println("search post");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().redirect("dashboard.jsf");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return true;
     }
 
