@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition>
+    <h:panelGroup layout="block" class="row">
+
+        <h:panelGroup layout="block" class="col-sm-4">
+            <h:link outcome="dashboard"><h:graphicImage class="logo" value="/img/logo_obstsalat.png" /></h:link>
+        </h:panelGroup>
+
+        <h:panelGroup layout="block" class="col-sm-4 col-sm-offset-4">
+            <h:panelGroup layout="block" class="box boxTop orange">
+
+                <p class="welcomeMessage"><h:outputText value="Willkommen #{userBean.user.user_name}"/></p>
+
+                <h:panelGroup layout="block" class="row">
+
+                    <h:panelGroup layout="block" class="col-sm-6">
+
+                        <h:link outcome="profile">
+                            <h:panelGroup layout="block" class="green maxWidth buttonSmall text-center">
+                                Dein Profil
+                            </h:panelGroup>
+                        </h:link>
+
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" class="col-sm-6">
+
+                        <h:form id="logout" class="maxWidth">
+                            <h:commandButton id="logoutButton" class="green maxWidth" value="Logout" action="#{userBean.logout}"/>
+                        </h:form>
+
+                    </h:panelGroup>
+
+                </h:panelGroup>
+
+            </h:panelGroup>
+        </h:panelGroup>
+
+    </h:panelGroup>
+</ui:composition>
+
+</html>
