@@ -6,6 +6,8 @@ import model.User;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 
 @ManagedBean(name="userBean")
@@ -39,6 +41,15 @@ public class UserBean implements Serializable {
     // IM
     public boolean login() {
         System.out.println("login");
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        try {
+            facesContext.getExternalContext().dispatch("dashboard.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        facesContext.responseComplete();
+
         return true;
     }
 
