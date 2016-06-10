@@ -5,26 +5,26 @@
 	  xmlns:f="http://xmlns.jcp.org/jsf/core"
 	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-	<ui:composition>
-		<h:panelGroup layout="block" class="row">
+<ui:composition>
+	<h:panelGroup layout="block" class="row">
 
-			<h:panelGroup layout="block" class="col-sm-4">
-				<h:link outcome="index"><h:graphicImage class="logo" value="/img/logo_obstsalat.png" /></h:link>
-			</h:panelGroup>
-
-			<h:panelGroup layout="block" class="col-sm-4 col-sm-offset-4">
-				<h:panelGroup layout="block" class="box boxTop orange">
-
-					<h:form id="login">
-						<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
-						<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
-						<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.login}"/>
-					</h:form>
-
-				</h:panelGroup>
-			</h:panelGroup>
-
+		<h:panelGroup layout="block" class="col-sm-4">
+			<h:link outcome="index"><h:graphicImage class="logo" value="/img/logo_obstsalat.png" /></h:link>
 		</h:panelGroup>
-	</ui:composition>
+
+		<h:panelGroup layout="block" class="col-sm-4 col-sm-offset-4">
+			<h:panelGroup layout="block" class="box boxTop orange">
+
+				<h:form id="login">
+					<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
+					<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
+					<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}"/>
+				</h:form>
+
+			</h:panelGroup>
+		</h:panelGroup>
+
+	</h:panelGroup>
+</ui:composition>
 
 </html>

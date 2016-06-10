@@ -39,18 +39,9 @@ public class UserBean implements Serializable {
 
 
     // IM
-    public boolean login() {
-        System.out.println("login");
-
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        try {
-            facesContext.getExternalContext().dispatch("dashboard.xhtml");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        facesContext.responseComplete();
-
-        return true;
+    public boolean checkLogin() {
+        System.out.println("Test");
+        return this.userManager.checkCredentials(this.user);
     }
 
     public boolean logout() {
@@ -67,6 +58,7 @@ public class UserBean implements Serializable {
         System.out.println("delete User");
         return true;
     }
+
 
 
 }
