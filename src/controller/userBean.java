@@ -39,7 +39,7 @@ public class UserBean implements Serializable {
     // IM
     public boolean checkLogin() {
         System.out.println("Test");
-        return true;
+        return this.userManager.checkCredentials(this.user);
     }
 
 }
