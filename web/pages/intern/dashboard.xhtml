@@ -23,6 +23,7 @@
 
                         <h:form id="writePost">
                             <h:inputTextarea a:placeholder="Deine Nachricht..." id="message" rows="10" required="true"/>
+                            <h:message class="validateMessage" for="message"/>
                             <h:commandButton id="postButton" class="orange maxWidth" value="Posten" action="#{postBean.writePost}"/>
                         </h:form>
 
