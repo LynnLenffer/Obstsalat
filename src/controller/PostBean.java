@@ -34,32 +34,16 @@ public class PostBean implements Serializable {
     }
 
     // IM
-    public boolean writePost() {
+    public String writePost() {
         System.out.println("write post");
 
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        try {
-            facesContext.getExternalContext().redirect("dashboard.jsf");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        facesContext.responseComplete();
-
-        return true;
+        return "true";
     }
 
-    public boolean searchPost() {
+    public String searchPost() {
         System.out.println("search post");
 
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        try {
-            facesContext.getExternalContext().redirect("dashboard.jsf");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        facesContext.responseComplete();
-
-        return true;
+        return "true";
     }
 
 

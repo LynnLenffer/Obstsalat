@@ -32,4 +32,62 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <display-name>profile.xhtml</display-name>
+        <from-view-id>/pages/intern/profile.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.logout}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/pages/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <display-name>dashboard.xhtml</display-name>
+        <from-view-id>/pages/intern/dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{postBean.searchPost}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/pages/intern/dashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <display-name>dashboard.xhtml</display-name>
+        <from-view-id>/pages/intern/dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{postBean.writePost}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/pages/intern/dashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <display-name>register.xhtml</display-name>
+        <from-view-id>/pages/register.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.register}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/pages/intern/dashboard.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <display-name>profile.xhtml</display-name>
+        <from-view-id>/pages/intern/profile.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{userBean.deleteUser}</from-action>
+            <from-outcome>true</from-outcome>
+            <to-view-id>/pages/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
+
 </faces-config>
