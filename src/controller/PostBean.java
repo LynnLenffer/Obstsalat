@@ -9,34 +9,29 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
+
 
 @ManagedBean(name="postBean")
 @SessionScoped
 public class PostBean implements Serializable {
 
     // IV
-    private Post post;
+    private List<Post> post;
     private PostManager postManager;
 
 
     @PostConstruct
     void init() {
         this.postManager = new PostManager();
-        this.post = new Post();
+        this.post = this.postManager.getPosts();
     }
 
 
     // Getter
-    public Post getPost() {
+    public List<Post> getPosts() {
         return post;
     }
-
-
-    // Setter
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
 
     // IM
     public boolean writePost() {

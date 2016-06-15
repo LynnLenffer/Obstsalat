@@ -18,7 +18,8 @@
 				<h:form id="login">
 					<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
 					<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
-					<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}"/>
+					<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}" validatorId="userValidator"/>
+
 				</h:form>
 
 			</h:panelGroup>

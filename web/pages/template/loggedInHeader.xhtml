@@ -32,7 +32,8 @@
                     <h:panelGroup layout="block" class="col-sm-6">
 
                         <h:form id="logout" class="maxWidth">
-                            <h:commandButton id="logoutButton" class="green maxWidth" value="Logout" action="#{userBean.logout}"/>
+                            <h:commandButton id="logoutButton" class="green maxWidth" value="Logout" action="#{session.invalidate()}"/>
+
                         </h:form>
 
                     </h:panelGroup>

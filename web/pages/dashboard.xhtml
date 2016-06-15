@@ -22,7 +22,7 @@
                         <p>Verfasse einen Post</p>
 
                         <h:form id="writePost">
-                            <h:inputTextarea a:placeholder="Deine Nachricht..." id="message" rows="10" value="#{postBean.post.post_message}"/>
+                            <h:inputTextarea a:placeholder="Deine Nachricht..." id="message" rows="10" value="Test"/>
                             <h:commandButton id="postButton" class="orange maxWidth" value="Posten" action="#{postBean.writePost}"/>
                         </h:form>
 
@@ -31,6 +31,17 @@
 
                 <h:panelGroup layout="block" class="col-sm-6">
                     <h:panelGroup layout="block" class="box orange">
+
+                        <h:form id="form">
+                            <h:dataTable value="#{postBean.posts}" var="test" type="ordered">
+                                <f:facet name="header">
+                                    Basic
+                                </f:facet>
+                                <h:column headerText="message">
+                                <h:outputText value="#{test.post_message}" />
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
 
                     </h:panelGroup>
                 </h:panelGroup>
@@ -41,7 +52,7 @@
                         <p>Du suchst einen Post?</p>
 
                         <h:form id="searchPost">
-                            <h:inputText a:placeholder="Suchbegriff..." id="searchTerm" value="#{postBean.post.post_message}"/>
+                            <h:inputText a:placeholder="Suchbegriff..." id="searchTerm" value="Test"/>
                             <h:commandButton id="searchButton" class="orange maxWidth" value="Suchen" action="#{postBean.searchPost}"/>
                         </h:form>
 
