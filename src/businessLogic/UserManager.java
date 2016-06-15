@@ -10,17 +10,6 @@ public class UserManager {
         return true;
     }
 
-    /**
-     * Überprüft die übermittelten User-Credentials
-     * @param _u User
-     * @return Test, ob die User-Credentials richtig oder falsch sind
-     */
-    public boolean checkCredentials (User _u){
-
-        return (_u.getUser_name().equals("test") && _u.getUser_password().equals("test"));
-    }
-
-
     public boolean updateUser(){
         return true;
     }
@@ -35,6 +24,11 @@ public class UserManager {
 
     public boolean deleteUser(){
         return true;
+    }
+
+
+    public boolean checkCredentials (User user){
+        return (user.getUser_email().equals("test@test.de") && user.getUser_password().equals("test"));
     }
 
 }

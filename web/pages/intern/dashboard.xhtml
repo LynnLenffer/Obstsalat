@@ -5,10 +5,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-    <ui:composition template="template/layout.xhtml">
+    <ui:composition template="/pages/template/layout.xhtml">
 
         <ui:define name="header">
-            <ui:include src="template/loggedInHeader.xhtml" />
+            <ui:include src="/pages/template/loggedInHeader.xhtml" />
         </ui:define>
 
 
@@ -30,20 +30,13 @@
                 </h:panelGroup>
 
                 <h:panelGroup layout="block" class="col-sm-6">
-                    <h:panelGroup layout="block" class="box orange">
 
-                        <h:form id="form">
-                            <h:dataTable value="#{postBean.posts}" var="test" type="ordered">
-                                <f:facet name="header">
-                                    Basic
-                                </f:facet>
-                                <h:column headerText="message">
-                                <h:outputText value="#{test.post_message}" />
-                                </h:column>
-                            </h:dataTable>
-                        </h:form>
+                    <ui:repeat value="#{postBean.posts}" var="post">
+                        <h:panelGroup layout="block" class="box orange">
+                            <p>#{post.post_message}</p>
+                        </h:panelGroup>
+                    </ui:repeat>
 
-                    </h:panelGroup>
                 </h:panelGroup>
 
                 <h:panelGroup layout="block" class="col-sm-3">

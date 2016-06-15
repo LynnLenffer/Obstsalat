@@ -16,13 +16,16 @@
 			<h:panelGroup layout="block" class="box boxTop orange">
 
 				<h:form id="login">
-					<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
-					<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
-					<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}" validatorId="userValidator"/>
-
+					<h:outputText class="validateMessage" value="#{sessionScope['loginErrorMessage']}"/>
+					<h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}" required="true" validator="#{userBean.userValidate.validate}" />
+					<h:message class="validateMessage" for="email"/>
+					<h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}" required="true" />
+					<h:message class="validateMessage" for="password"/>
+					<h:commandButton id="loginButton" class="green" value="Login" action="#{userBean.checkLogin}"/>
 				</h:form>
 
 			</h:panelGroup>
+
 		</h:panelGroup>
 
 	</h:panelGroup>
