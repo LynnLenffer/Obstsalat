@@ -22,11 +22,15 @@
                 <h:panelGroup layout="block" class="box green">
 
                     <h:form id="register" enctype="multipart/form-data">
-                        <h:inputText a:placeholder="Benutzername" id="username" value="#{userBean.user.user_name}"/>
-                        <h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}"/>
-                        <h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}"/>
+                        <h:inputText a:placeholder="Benutzername" id="username" value="#{userBean.user.user_name}" required="true"/>
+                        <h:message class="validateMessage" for="username"/>
+                        <h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}" required="true" validator="#{userBean.userValidate.validate}" />
+                        <h:message class="validateMessage" for="email"/>
+                        <h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}" required="true"/>
+                        <h:message class="validateMessage" for="password"/>
                         <h:inputFile class="orange whiteFont" id="userimage" value="#{userBean.user.user_avatar}"/>
                         <h:commandButton id="registerButton" class="orange maxWidth" value="Registrieren" action="#{userBean.register}"/>
+                        <h:button id="resetButton" class="orange maxWidth" value="Zurücksetzten" action="/index.jsf" immediate="true"/>
                     </h:form>
 
                 </h:panelGroup>
