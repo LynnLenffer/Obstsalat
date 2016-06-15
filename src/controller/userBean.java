@@ -71,10 +71,12 @@ public class UserBean implements Serializable {
     }
 
     public String logout() {
-        System.out.println("logout");
+
 
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+
         session.invalidate();
 
         facesContext.responseComplete();
@@ -83,33 +85,26 @@ public class UserBean implements Serializable {
 
     }
 
-    public boolean register() {
+    public String register() {
         System.out.println("register");
 
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        try {
-            facesContext.getExternalContext().redirect("index.jsf");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+        session.setAttribute("loggedin", "true");
+
         facesContext.responseComplete();
 
-        return true;
+        return "true";
     }
 
-    public boolean deleteUser() {
-        System.out.println("delete User");
+    public String deleteUser() {
 
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        try {
-            facesContext.getExternalContext().redirect("index.jsf");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        facesContext.responseComplete();
+        logout();
 
-        return true;
+        return "true";
     }
 
 
 }
+
