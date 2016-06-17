@@ -1,16 +1,16 @@
 package businessLogic;
 
+import dataAccess.Derby_User_DAO;
 import model.Post;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class PostManager {
+
+    Derby_User_DAO dao = new Derby_User_DAO();
 
 
     public boolean createPost(){
@@ -30,9 +30,9 @@ public class PostManager {
 
     public List<Post> getPosts(){
 
-        Date date = new Date();
+        /*Date date = new Date();
 
-        List<Post> test = new LinkedList<>();
+
         Post test1 = new Post();
         test1.setPost_message("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.");
         test1.setUser_image("profilbild_1.jpg");
@@ -48,9 +48,12 @@ public class PostManager {
         test2.setPost_rating_negative(8);
 
         test.add(test1);
-        test.add(test2);
+        test.add(test2); */
 
-        return test;
+        List<Post> posts;
+        posts = dao.getPosts();
+
+        return posts;
     }
 
     public boolean deletePost(){

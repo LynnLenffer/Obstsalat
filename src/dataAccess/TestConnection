@@ -1,0 +1,32 @@
+DROP TABLE post;
+DROP TABLE USERS;
+
+CREATE TABLE users (
+
+  user_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+  user_name VARCHAR(256),
+  user_email VARCHAR(256),
+  user_password VARCHAR(256),
+  user_last_login VARCHAR(256),
+  user_avatar BLOB,
+  user_creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT unique_user_email UNIQUE (user_email)
+);
+
+INSERT INTO USERS (user_name, user_email, user_password, user_last_login)
+VALUES ('Test', 'test@test.de', 'test', CURRENT TIMESTAMP);
+
+SELECT * FROM USERS;
+
+CREATE TABLE post(
+  post_id            INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY ( START WITH 1, INCREMENT BY 1),
+  user_id            INTEGER CONSTRAINT fk_user_post REFERENCES Users (user_id),
+  post_message       VARCHAR(1024),
+  post_creation_date TIMESTAMP           DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO POST (user_id, post_message)
+VALUES (1, 'Dies ist ein erster Test Post');
+
+INSERT INTO post (user_id, post_message)
+VALUES (1, 'Dies ist ein zweiter Test! Ich LIEBE Melonen');

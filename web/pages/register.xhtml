@@ -22,15 +22,21 @@
                 <h:panelGroup layout="block" class="box green">
 
                     <h:form id="register" enctype="multipart/form-data">
-                        <h:inputText a:placeholder="Benutzername" id="username" value="#{userBean.user.user_name}" required="true"/>
+                        <h:inputText a:placeholder="Benutzername" id="username" value="#{userBean.user.user_name}" binding="#{userBean.username}" required="true">
+
+                        </h:inputText>
                         <h:message class="validateMessage" for="username"/>
-                        <h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}" required="true" validator="#{userBean.userValidate.validate}" />
+                        <h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}" required="true" binding="#{userBean.useremail}" validator="#{userBean.userValidate.validate}">
+
+                        </h:inputText>
                         <h:message class="validateMessage" for="email"/>
                         <h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}" required="true"/>
                         <h:message class="validateMessage" for="password"/>
                         <h:inputFile class="orange whiteFont" id="userimage" value="#{userBean.user.user_avatar}"/>
                         <h:commandButton id="registerButton" class="orange maxWidth" value="Registrieren" action="#{userBean.register}"/>
-                        <h:button id="resetButton" class="orange maxWidth" value="Zurücksetzten" action="/index.jsf" immediate="true"/>
+                        <h:commandButton id="resetButton" class="orange maxWidth" value="Zurücksetzten"  immediate="true" actionListener="#{userBean.resetValues}"/>
+
+
                     </h:form>
 
                 </h:panelGroup>
