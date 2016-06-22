@@ -22,13 +22,13 @@ public class LoginFilter implements Filter {
 
         HttpSession session = httpRequest.getSession(true);
 
-        //if(session.getAttribute("loggedin") != null && session.getAttribute("loggedin").equals("true")) {
+        if(session.getAttribute("loggedin") != null && session.getAttribute("loggedin").equals("true")) {
             chain.doFilter(request, response);
-        //}
-        /*else {
+        }
+        else {
             String URL = httpResponse.encodeRedirectURL("/pages/index.jsf");
             httpResponse.sendRedirect(URL);
-        } */
+        }
 
     }
 

@@ -22,7 +22,7 @@
                         <p>Verfasse einen Post</p>
 
                         <h:form id="writePost">
-                            <h:inputTextarea a:placeholder="Deine Nachricht..." id="message" rows="10" required="true"/>
+                            <h:inputTextarea value="#{postBean.post.post_message}" a:placeholder="Deine Nachricht..." id="message" rows="10" required="true"/>
                             <h:message class="validateMessage" for="message"/>
                             <h:commandButton id="postButton" class="orange maxWidth" value="Posten" action="#{postBean.writePost}"/>
                         </h:form>
@@ -78,8 +78,7 @@
                         <p>Du suchst einen Post?</p>
 
                         <h:form id="searchPost">
-                            <h:inputText a:placeholder="Suchbegriff..." id="searchTerm" required="true"/>
-                            <h:message class="validateMessage" for="searchTerm"/>
+                            <h:inputText value="#{postBean.filter}" a:placeholder="Suchbegriff..." id="searchTerm" />
                             <h:commandButton id="searchButton" class="orange maxWidth" value="Suchen" action="#{postBean.searchPost}"/>
                         </h:form>
 

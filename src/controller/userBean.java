@@ -56,11 +56,14 @@ public class UserBean implements Serializable {
 
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
 
-        if(this.userManager.checkCredentials(this.user)) {
+        this.user = this.userManager.checkCredentials(this.user);
+
+        if(this.user != null) {
             session.setAttribute("loggedin", "true");
             result = "true";
         }
         else {
+            this.user = new User();
             session.setAttribute("loginErrorMessage", "Benutzername oder Passwort waren nicht korrekt!");
         }
 
@@ -86,23 +89,45 @@ public class UserBean implements Serializable {
     }
 
     public String register() {
+
         System.out.println("register");
 
         FacesContext facesContext = FacesContext.getCurrentInstance();
 
-        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-        session.setAttribute("loggedin", "true");
+        boolean registered = this.userManager.registerUser(this.user);
 
-        facesContext.responseComplete();
+        if(registered) {
+            HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+            session.setAttribute("loggedin", "true");
 
-        return "true";
+            facesContext.responseComplete();
+
+            return "true";
+
+        }
+        else {
+
+            facesContext.responseComplete();
+
+            return "false";
+
+        }
     }
 
     public String deleteUser() {
 
-        logout();
+        System.out.println("delete User");
 
-        return "true";
+        boolean deleted = this.userManager.deleteUser(this.user);
+
+        if(deleted) {
+            logout();
+            return "true";
+        }
+        else {
+            return "false";
+        }
+
     }
 
 

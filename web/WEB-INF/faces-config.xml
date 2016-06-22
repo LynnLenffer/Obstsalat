@@ -75,6 +75,12 @@
             <to-view-id>/pages/intern/dashboard.xhtml</to-view-id>
             <redirect />
         </navigation-case>
+        <navigation-case>
+            <from-action>#{userBean.register}</from-action>
+            <from-outcome>false</from-outcome>
+            <to-view-id>/pages/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
