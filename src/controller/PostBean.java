@@ -2,24 +2,28 @@ package controller;
 
 import businessLogic.PostManager;
 import model.Post;
+import model.User;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
 
 @ManagedBean(name="postBean")
-@SessionScoped
+@RequestScoped
 public class PostBean implements Serializable {
 
     // IV
     private Post post;
     private List<Post> posts;
+    private List<Post> userPosts;
     private PostManager postManager;
     private String filter;
     @ManagedProperty(value="#{userBean}")
@@ -30,6 +34,7 @@ public class PostBean implements Serializable {
     void init() {
         this.postManager = new PostManager();
         this.posts = this.postManager.getPosts();
+        this.userPosts = this.postManager.getUserPosts(userBean.getUser().getUser_id());
         this.post = new Post();
         this.filter = "";
     }
@@ -52,6 +57,15 @@ public class PostBean implements Serializable {
         return userBean;
     }
 
+    public List<Post> getUserPosts() {
+        return userPosts;
+    }
+
+    public PostManager getPostManager() {
+        return postManager;
+    }
+
+
 
     // Setter
     public void setUserBean(UserBean userBean) {
@@ -70,16 +84,25 @@ public class PostBean implements Serializable {
         this.filter = filter;
     }
 
+    public void setUserPosts(List<Post> userPosts) {
+        this.userPosts = userPosts;
+    }
+
+    public void setPostManager(PostManager postManager) {
+        this.postManager = postManager;
+    }
+
+
 
     // IM
     public String writePost() {
         System.out.println("write post");
         this.post.setUser_id(userBean.getUser().getUser_id());
 
-        this.postManager.createPost(this.post);
+        boolean success = this.postManager.createPost(this.post);
 
-        if(this.postManager.createPost(this.post)) {
-            this.getAllPosts();
+        if(success) {
+            //this.getAllPosts();
             return "true";
         }
         else {
@@ -92,6 +115,20 @@ public class PostBean implements Serializable {
         System.out.println("get posts");
 
         this.posts = this.postManager.getPosts();
+
+        if(this.posts != null) {
+            return "true";
+        }
+        else {
+            return "false";
+        }
+
+    }
+
+    public String getAllUserPosts() {
+        System.out.println("get User posts");
+
+        this.userPosts = this.postManager.getUserPosts(userBean.getUser().getUser_id());
 
         if(this.posts != null) {
             return "true";
@@ -116,6 +153,14 @@ public class PostBean implements Serializable {
         }
 
     }
+
+
+    public void searchListener(AjaxBehaviorEvent e) {
+
+        this.searchPost();
+
+    }
+
 
 
 }

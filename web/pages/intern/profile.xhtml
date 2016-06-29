@@ -19,19 +19,19 @@
                 <h:panelGroup layout="block" class="col-sm-3">
                     <h:panelGroup layout="block" class="box green">
 
-                        <h:graphicImage class="maxWidth" value="/img/avatars/#{userBean.user.user_avatar}" />
+                        <h:graphicImage class="maxWidth" value="/img/profile/#{userBean.user.user_avatar}" />
 
                     </h:panelGroup>
                 </h:panelGroup>
 
                 <h:panelGroup layout="block" class="col-sm-6">
 
-                    <ui:repeat value="#{postBean.posts}" var="post">
+                    <ui:repeat value="#{postBean.userPosts}" var="post">
 
                         <h:panelGroup layout="block" class="box orange">
                             <h:panelGroup layout="block" class="row">
                                 <h:panelGroup layout="block" class="col-sm-3">
-                                    <div class="postImage" style="background-image: url(/img/profile/#{post.user_image});"></div>
+                                    <div class="postImage" style="background-image: url(/img/profile/#{post.user_avatar});"></div>
                                 </h:panelGroup>
 
                                 <h:panelGroup layout="block" class="col-sm-9">
@@ -47,15 +47,16 @@
                             </h:panelGroup>
 
                             <h:panelGroup layout="block" class="postDetailsWrapper">
-
+                                <!--
                                 <h:panelGroup layout="block" class="col-sm-4 col-sm-offset-3">
                                     <h:graphicImage class="ratingImage ratingElement" value="/img/rating_positive.png" />
                                     <p class="postDetails ratingElement">#{post.post_rating_positive}</p>
                                     <h:graphicImage class="ratingImage ratingElement" value="/img/rating_negative.png" />
                                     <p class="postDetails ratingElement">#{post.post_rating_negative}</p>
                                 </h:panelGroup>
+                                -->
 
-                                <h:panelGroup layout="block" class="col-sm-5">
+                                <h:panelGroup layout="block" class="col-sm-5 col-sm-offset-3">
                                     <p class="postDetails">Geposted am: #{post.post_creation_date}</p>
                                 </h:panelGroup>
 

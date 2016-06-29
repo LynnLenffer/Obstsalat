@@ -198,6 +198,10 @@ input[type="submit"] {
 	padding-bottom: 30px;
 }
 
+#resetButton {
+	margin-top: 10px;
+}
+
 /* Footer */
 .footer {
 	position: fixed;

@@ -27,14 +27,16 @@
                         </h:inputText>
                         <h:message class="validateMessage" for="username"/>
                         <h:inputText a:placeholder="E-Mail" id="email" value="#{userBean.user.user_email}" required="true" validator="#{userBean.userValidate.validate}">
-
+                            <f:ajax render="emailErrorRegister" />
                         </h:inputText>
-                        <h:message class="validateMessage" for="email"/>
+                        <h:message id="emailErrorRegister" class="validateMessage" for="email"/>
                         <h:inputSecret a:placeholder="Passwort" id="password" value="#{userBean.user.user_password}" required="true"/>
                         <h:message class="validateMessage" for="password"/>
-                        <h:inputFile class="orange whiteFont" id="userimage" value="#{userBean.user.user_avatar}"/>
+
+                        <h:inputFile class="orange whiteFont" id="userimage" value="#{userBean.file}"/>
+
                         <h:commandButton id="registerButton" class="orange maxWidth" value="Registrieren" action="#{userBean.register}"/>
-                        <h:commandButton id="resetButton" class="orange maxWidth" value="Zurücksetzten"  immediate="true" />
+                        <h:button id="resetButton" class="orange maxWidth" action="#{userBean.reset}" value="Zurücksetzten" />
 
 
                     </h:form>

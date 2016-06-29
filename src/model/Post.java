@@ -9,9 +9,9 @@ public class Post {
     private int user_id;
     private String post_message;
     private Timestamp post_creation_date;
-    private String user_image;
     private int post_rating_positive;
     private int post_rating_negative;
+    private String user_avatar;
 
 
     // Getter
@@ -31,11 +31,13 @@ public class Post {
         return post_creation_date;
     }
 
-    public String getUser_image() { return user_image; }
-
     public int getPost_rating_positive() { return post_rating_positive; }
 
     public int getPost_rating_negative() { return post_rating_negative; }
+
+    public String getUser_avatar() {
+        return user_avatar;
+    }
 
 
     // Setter
@@ -55,10 +57,11 @@ public class Post {
         this.post_creation_date = post_creation_date;
     }
 
-    public void setUser_image(String user_image) { this.user_image = user_image; }
-
     public void setPost_rating_positive(int post_rating_positive) { this.post_rating_positive = post_rating_positive; }
 
     public void setPost_rating_negative(int post_rating_negative) { this.post_rating_negative = post_rating_negative; }
 
+    public void setUser_avatar(String user_avatar) {
+        this.user_avatar = user_avatar;
+    }
 }

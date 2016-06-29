@@ -34,11 +34,7 @@ public class MySQLDAOFactory extends DAOFactory {
         try {
 
             Class.forName(DRIVER).newInstance();
-            System.out.println("Driver was registered.");
-
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-
-            System.out.println("Connected to database");
 
         }
         catch (SQLException e) {

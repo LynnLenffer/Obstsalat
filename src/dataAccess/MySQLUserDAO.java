@@ -40,6 +40,13 @@ public class MySQLUserDAO implements UserDAO {
         catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         return success;
 
@@ -78,8 +85,60 @@ public class MySQLUserDAO implements UserDAO {
         catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         return user;
+    }
+
+    @Override
+    public User getUser(int user_id) {
+
+        User user = new User();
+
+        Connection connection = MySQLDAOFactory.createConnection();
+
+        String statement = "SELECT * FROM Users WHERE user_id = ?";
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(statement);
+
+            stmt.setInt(1, user_id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                user.setUser_id( rs.getInt("user_id") );
+                user.setUser_name( rs.getString("user_name") );
+                user.setUser_email( rs.getString("user_email") );
+                user.setUser_password( rs.getString("user_password") );
+                user.setUser_last_login( rs.getTimestamp("user_last_login") );
+                user.setUser_avatar( rs.getString("user_avatar") );
+                user.setUser_creation_date( rs.getTimestamp("user_creation_date") );
+
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return user;
+
     }
 
     @Override
@@ -105,6 +164,13 @@ public class MySQLUserDAO implements UserDAO {
         }
         catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         return success;

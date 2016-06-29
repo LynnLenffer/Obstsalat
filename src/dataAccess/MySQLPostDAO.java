@@ -19,7 +19,7 @@ public class MySQLPostDAO implements PostDAO {
 
         Connection connection = MySQLDAOFactory.createConnection();
 
-        String statement = "SELECT * FROM Posts";
+        String statement = "SELECT * FROM Posts ORDER BY post_creation_date DESC";
 
         try {
 
@@ -44,6 +44,13 @@ public class MySQLPostDAO implements PostDAO {
         catch (SQLException e) {
             e.printStackTrace();
         }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
         return posts;
 
@@ -56,7 +63,7 @@ public class MySQLPostDAO implements PostDAO {
 
         Connection connection = MySQLDAOFactory.createConnection();
 
-        String statement = "SELECT * FROM Posts WHERE post_message Like ?";
+        String statement = "SELECT * FROM Posts WHERE post_message Like ? ORDER BY post_creation_date DESC";
 
         try {
 
@@ -81,6 +88,58 @@ public class MySQLPostDAO implements PostDAO {
         }
         catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return posts;
+
+    }
+
+    @Override
+    public List<Post> getUserPosts(int user_id) {
+
+        List<Post> posts = new ArrayList<>();
+
+        Connection connection = MySQLDAOFactory.createConnection();
+
+        String statement = "SELECT * FROM Posts WHERE user_id = ? ORDER BY post_creation_date DESC";
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(statement);
+            stmt.setInt(1, user_id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Post post = new Post();
+
+                post.setPost_id( rs.getInt("post_id") );
+                post.setUser_id( rs.getInt("user_id") );
+                post.setPost_message( rs.getString("post_message") );
+                post.setPost_creation_date( rs.getTimestamp("post_creation_date") );
+
+                posts.add(post);
+
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         return posts;
@@ -112,6 +171,13 @@ public class MySQLPostDAO implements PostDAO {
         }
         catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         return success;

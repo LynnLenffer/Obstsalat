@@ -27,9 +27,11 @@ public class UserManager {
         return true;
     }
 
-    public User getUser(){
-        return null;
+
+    public User getUser(int user_id){
+        return this.dao.getUser(user_id);
     }
+
 
     public List<User> getUsers(){
         return null;
